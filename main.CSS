@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  --c: rgba(255, 255, 255, 0.3);
+  --t: transparent;
+  flex: 1;
+  background-image: repeating-linear-gradient(
+      45deg,
+      var(--c) 0,
+      var(--c) 20px,
+      var(--t) 20px,
+      var(--t) 32px,
+      var(--c) 32px,
+      var(--c) 44px,
+      var(--t) 44px,
+      var(--t) 56px,
+      var(--c) 56px,
+      var(--c) 68px,
+      var(--t) 68px,
+      var(--t) 80px,
+      var(--c) 0
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--c) 0,
+      var(--c) 20px,
+      var(--t) 20px,
+      var(--t) 32px,
+      var(--c) 32px,
+      var(--c) 44px,
+      var(--t) 44px,
+      var(--t) 56px,
+      var(--c) 56px,
+      var(--c) 68px,
+      var(--t) 68px,
+      var(--t) 80px,
+      var(--c) 0
+    ),
+    linear-gradient(to bottom right, #0abfbc, #fc354c);
+  font-family: "Roboto", sans-serif;
+}
+/*header*/
+.title h1 {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 1.6em auto;
+  display: grid;
+  gap: 1.6em;
+  /* repeat (5,1fr ) =repita una colimna 5 veces*/
+  grid-template-columns: repeat(5, 1fr);
+  background: #fff;
+}
+
+.container > .header,
+.container > .content,
+.container > .sidebar,
+.container > .footer,
+.container > .post {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #000000;
+}
+
+.container .header,
+.container .footer {
+  grid-column: 1/6;
+  background: #1e272e;
+  color: #fff;
+}
+
+.container > .content {
+  grid-column: span 3;
+}
+
+.content > .article {
+  background: #808e9d;
+  padding: 20px;
+  margin-top: 5px;
+  color: #dfe6e9;
+}
+
+.content .article h1,
+.content .article p {
+  padding: 10px;
+}
+
+.container .sidebar img {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.container > .sidebar {
+  grid-column: span 2;
+  background: #485460;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+.container > .post {
+  background: #2d3436;
+  color: #fff;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.container > .post:hover {
+  cursor: pointer;
+  color: #000;
+  background: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    text-align: center;
+  }
+  .container {
+    justify-content: center;
+  }
+
+  .container .content {
+    grid-column: 1/-1;
+  }
+  .container .sidebar {
+    grid-column: 1/-1;
+  }
+  .container .post {
+    grid-column: 1/-1;
+  }
+}
